@@ -4,7 +4,7 @@ dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
 # shellcheck source=install/detect_os.sh
 . "$dir/detect_os.sh"
 
-fish_debian_repo="http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_9.0"
+fish_debian_repo="http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_12"
 
 if [ "$DIST" = 'ubuntu' ] || [ "$DIST" = 'debian' ]; then
     $SUDO apt-get update
