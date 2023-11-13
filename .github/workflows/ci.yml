@@ -13,11 +13,11 @@ jobs:
     name: ${{ matrix.linux_distro }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - run: ./test/shellcheck.sh
       - run: ./test/run_all_scripts.bash "${{ matrix.linux_distro }}" "${{ matrix.disabled_tests }}"
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         linux_distro:
           - alpine
@@ -32,7 +32,7 @@ jobs:
     name: ${{ matrix.macos_version }}
     runs-on: ${{ matrix.macos_version }}
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v4
       - run: ./test/run_all_scripts.bash 'NATIVE' 'fish_nvm'
     strategy:
       fail-fast: true
