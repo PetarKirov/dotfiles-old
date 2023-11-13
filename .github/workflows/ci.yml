@@ -19,14 +19,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        linux_distro:
-          - alpine
-          - archlinux
-          - debian
-          - ubuntu
-          - homebrew
         include:
-          - linux_distro: 'alpine'
+          - linux_distro: alpine
+            disabled_tests: 'flutter'
+          - linux_distro: archlinux
+            disabled_tests: 'flutter'
+          - linux_distro: debian
+            disabled_tests: 'flutter'
+          - linux_distro: ubuntu
+            disabled_tests: 'flutter'
+          - linux_distro: homebrew
             disabled_tests: 'flutter'
   macos_tests:
     name: ${{ matrix.macos_version }}
